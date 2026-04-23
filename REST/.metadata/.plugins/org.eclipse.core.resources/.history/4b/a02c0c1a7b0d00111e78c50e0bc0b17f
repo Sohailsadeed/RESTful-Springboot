@@ -1,0 +1,8 @@
+package com.practice.main;
+
+public class Parser {
+	public static void main(String[] args) {
+		String jsonStr="{\"id\":101,\"name\":\"Mubeen\",\"gender\":\"Male\",\"city\":\"Badhrachalam\"}";
+		
+	}
+}

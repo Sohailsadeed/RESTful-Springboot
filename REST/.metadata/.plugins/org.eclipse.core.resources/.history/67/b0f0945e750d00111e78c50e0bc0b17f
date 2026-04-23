@@ -1,0 +1,13 @@
+package com.practice.main;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        JsonFactory jsonFactory	= new JsonFactory();
+        JsonGenerator jsonGenerat
+    }
+}

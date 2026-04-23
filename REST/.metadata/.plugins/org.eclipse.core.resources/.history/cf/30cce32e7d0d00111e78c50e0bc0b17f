@@ -1,0 +1,42 @@
+package com.practice.main;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+
+public class ParserUrl {
+	public static void main(String[] args) throws MalformedURLException, IOException {
+		String url = "https://jsonplaceholder.typicode.com/todos";
+		InputStream stream = new URL(url).openStream();
+
+		JsonFactory factory = new JsonFactory();
+		JsonParser parser = factory.createJsonParser(stream);
+		
+		while (parser.nextToken() != null) {
+
+			if (parser.currentToken() == JsonToken.FIELD_NAME) {
+				String fieldName = parser.getCurrentName();
+				parser.nextToken();
+				if (fieldName.equals("userId")) {
+					int userId = parser.getIntValue();
+					System.out.println("userId: " + userId);
+				} 
+				else if (fieldName.equals("id")) {
+					int id = parser.getIntValue();
+					System.out.println("Id: " + id);
+				} else if (fieldName.equals("title")) {
+					String title = parser.getText();
+					System.out.println("Title: " + title);
+				} else if (fieldName.equals("completed")) {
+					String completed = parser.getText();
+					System.out.println("Completed: " + completed);
+				}
+			}
+		}
+	}
+}

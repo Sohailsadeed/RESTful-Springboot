@@ -1,0 +1,13 @@
+package com.practice.main;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class ParserUrl {
+	public static void main(String[] args) throws MalformedURLException, IOException {
+		String url="https://jsonplaceholder.typicode.com/todos";
+		InputStream stream = new URL(url).openStream();
+	}
+}

@@ -1,0 +1,24 @@
+package com.practice.main;
+
+import java.io.File;
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonEncoding;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+
+public class App 
+{
+    public static void main( String[] args ) throws Exception
+    {
+        JsonFactory jsonFactory	= new JsonFactory();
+        JsonGenerator jsonGenerator=jsonFactory.createGenerator(new File("D:\\student.json"), JsonEncoding.UTF8);
+        
+        jsonGenerator.writeStartObject();
+        jsonGenerator.writeNumberField("id", 101);
+        jsonGenerator.writeStringField("name", "Mubeen");
+        jsonGenerator.writeStringField("gender", "Male");
+        jsonGenerator.writeStringField("city", "");
+        jsonGenerator.writeEndObject();
+    }
+}

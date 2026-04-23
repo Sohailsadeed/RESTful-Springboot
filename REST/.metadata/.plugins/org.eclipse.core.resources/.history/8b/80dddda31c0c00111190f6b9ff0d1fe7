@@ -1,0 +1,29 @@
+package com.practice.main.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.practice.main.beans.Student;
+import com.practice.main.dao.StudentDao;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+	
+	@Autowired
+	StudentDao studentDao;
+	@Override
+	public Student addStudent(Student std) {
+		Student stud=studentDao.save(std);
+		
+		return stud;
+	}
+	@Override
+	public List<Student> findAllStudents() {
+		List<Student> stdList = studentDao.findAll();
+		
+		return stdList;
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.practice.beans;
+
+public class ToDos {
+	private int userId;
+	private int id;
+	private String 
+}

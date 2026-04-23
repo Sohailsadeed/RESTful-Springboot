@@ -1,0 +1,10 @@
+package com.practice.main;
+
+import java.io.InputStream;
+
+public class ParserUrl {
+	public static void main(String[] args) {
+		String url="https://jsonplaceholder.typicode.com/todos";
+		InputStream stream = 
+	}
+}

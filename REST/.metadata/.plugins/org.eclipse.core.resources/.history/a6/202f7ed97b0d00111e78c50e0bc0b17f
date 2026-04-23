@@ -1,0 +1,40 @@
+package com.practice.main;
+
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+
+public class Parser {
+	public static void main(String[] args) throws JsonParseException, IOException {
+		String jsonStr="{\"id\":101,\"name\":\"Mubeen\",\"gender\":\"Male\",\"city\":\"Badhrachalam\"}";
+		
+		JsonFactory factory=new JsonFactory();
+		
+		JsonParser parser=factory.createJsonParser(jsonStr);
+		
+		while(parser.nextToken()!=null) {
+			
+			if(parser.currentToken()==JsonToken.FIELD_NAME) {
+				String fieldName=parser.getCurrentName();
+				parser.nextToken();
+				if(fieldName.equals("id")) {
+					int id=parser.getIntValue();
+					System.out.println("Id: "+id);
+				}
+				else if(fieldName.equals("name")) {
+					String name=parser.getText();
+					System.out.println();
+				}
+				else if(fieldName.equals("gender")) {
+					String gender = parser.getText(); 
+				}
+				else if(fieldName.equals("city")) {
+					String city=parser.getText();
+				}
+			}
+		}
+	}
+}

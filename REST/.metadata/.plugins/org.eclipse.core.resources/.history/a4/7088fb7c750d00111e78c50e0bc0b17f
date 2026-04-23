@@ -1,0 +1,15 @@
+package com.practice.main;
+
+import java.io.File;
+
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        JsonFactory jsonFactory	= new JsonFactory();
+        JsonGenerator jsonGenerator=jsonFactory.createGenerator(new File("D:\\student.json"), E)
+    }
+}

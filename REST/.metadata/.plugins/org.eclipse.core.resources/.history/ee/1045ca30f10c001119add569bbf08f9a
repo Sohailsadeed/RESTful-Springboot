@@ -1,0 +1,28 @@
+package com.practice.main;
+
+import java.io.IOException;
+import java.net.URL;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.practice.beans.ToDos;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws IOException
+    {
+    	String url="https://jsonplaceholder.typicode.com/todos";
+    	
+    	ObjectMapper mapper=new ObjectMapper();
+    	ToDos[] toDos=mapper.readValue(new URL(url), ToDos[].class);
+    	for(ToDos toDo: toDos) {
+    		System.out.println("userId: "+toDo.getUserId());
+    		System.out.println("Id: "+toDo.getId());
+    		System.out.println("Title: "+toDo.getTitle());
+    		System.out.println("Completed: "+toDo.isCompleted());
+    	}
+    }
+}
